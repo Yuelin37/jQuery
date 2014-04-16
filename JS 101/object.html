@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+		// Creating an object literal.
+		var myObject = {
+			sayHello: function() {
+				console.log( "hello" );
+			},
+			myName: "Rebecca",
+			validIdentifier: 123,
+			"some string": 456,
+			99999: 789
+		};
+		myObject.sayHello(); // "hello"
+		console.log( myObject.myName ); // "Rebecca"
+		console.log( myObject.validIdentifier ); 
+		console.log( myObject['some string'] ); 
+		console.log( myObject[99999] ); 
+
+
+
+	</script>
+</head>
+<body>
+	<h1 id="hello-world">Hello World</h1>
+</body>
+</html>

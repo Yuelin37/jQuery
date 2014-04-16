@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+		function prtLine(){
+			console.log("------------------------------------------");
+		}
+		// A function invoked using Function.call()
+		var myObject = {
+			sayHello: function() {
+				console.log( "Hi! My name is " + this.myName );
+			},
+			myName: "Rebecca"
+		};
+		var secondObject = {
+			myName: "Colin"
+		};
+		myObject.sayHello(); // "Hi! My name is Rebecca"
+		myObject.sayHello.call( secondObject ); // "Hi! My name is Colin"
+
+
+		// A function created using Function.bind()
+		console.log("A function created using Function.bind()");
+		var myName = "the global object";
+		var sayHello = function() {
+			console.log( "Hi! My name is " + this.myName );
+		};
+		var myObject = {
+			myName: "Rebecca"
+		};
+		var myObjectHello = sayHello.bind( myObject );
+		sayHello(); // "Hi! My name is the global object"
+		myObjectHello(); // "Hi! My name is Rebecca"
+		prtLine();
+
+		// A function being attached to an object at runtime.
+		var myName = "the global object";
+		var sayHello = function() {
+			console.log( "Hi! My name is " + this.myName );
+		};
+		var myObject = {
+			myName: "Rebecca"
+		};
+		var secondObject = {
+			myName: "Colin"
+		};
+		myObject.sayHello = sayHello;
+		secondObject.sayHello = sayHello;
+		sayHello(); // "Hi! My name is the global object"
+		myObject.sayHello(); // "Hi! My name is Rebecca"
+		secondObject.sayHello(); // "Hi! My name is Colin"
+		prtLine();
+
+
+		var myNamespace = {
+			myObject: {
+				sayHello: function() {
+					console.log( "Hi! My name is " + this.myName );
+				},
+				myName: "Rebecca"
+			}
+		};
+		var hello = myNamespace.myObject.sayHello;
+		hello(); // "Hi! My name is undefined"
+		prtLine();
+
+
+		var myNamespace = {
+			myObject: {
+				sayHello: function() {
+					console.log( "Hi! My name is " + this.myName );
+				},
+				myName: "Rebecca"
+			}
+		};
+		var obj = myNamespace.myObject;
+		obj.sayHello(); // "Hi! My name is Rebecca"
+	</script>
+</head>
+<body>
+	<h1 id="hello-world">Hello World</h1>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+		// Leaving indices
+		var myArray = [];
+		myArray[ 0 ] = "hello";
+		myArray[ 1 ] = "world";
+		myArray[ 3 ] = "!";
+		console.log( myArray ); // [ "hello", "world", undefined, "!" ];
+
+		// Native .forEach()
+		function printElement( elem ) {
+			console.log( elem );
+		}
+		function printElementAndIndex( elem, index ) {
+			console.log( "Index " + index + ": " + elem );
+		}
+		function negateElement( elem, index, array ) {
+			array[ index ] = -elem;
+		}
+		myArray = [ 1, 2, 3, 4, 5 ];
+		// Prints all elements to the console
+		myArray.forEach( printElement );
+		// Prints "Index 0: 1", "Index 1: 2", "Index 2: 3", ...
+		myArray.forEach( printElementAndIndex );
+		// myArray is now [ -1, -2, -3, -4, -5 ]
+		myArray.forEach( negateElement );
+		console.log( myArray ); 
+
+	</script>
+</head>
+<body>
+	<h1 id="hello-world">Hello World</h1>
+</body>
+</html>
