@@ -1,0 +1,78 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+	function prtMsg (msg) {
+		console.log(msg);
+	}
+	function prtLine () {
+		console.log("=========================================");
+	}
+	$(document).ready(function() {
+
+		var sum = 0;
+		var arr = [ 1, 2, 3, 4, 5 ];
+		$.each( arr, function( index, value ){
+			sum += value;
+		});
+		console.log( sum ); // 15
+
+		///////////////////////////////////////////////////////////
+		var sum = 0;
+		var obj = {
+			foo: 1,
+			bar: 2
+		}
+		for (var item in obj) {
+			sum += obj[ item ];
+		}
+		console.log( sum ); // 3
+
+		var sum = 0;
+		var obj = {
+			foo: 1,
+			bar: 2
+		}
+		$.each( obj, function( key, value ) {
+			sum += value;
+		});
+		console.log( sum ); // 3
+		///////////////////////////////////////////////////////////
+		// .each
+		$( "li" ).each( function( index, element ){
+			console.log( $( this ).text() );
+			console.log( $(element).text() );
+			console.log( this.textContent );
+			console.log( $(this) );
+			console.log( this );
+		});
+		// Sometimes .each() Isn't Necessary
+		$( "li" ).addClass( "newClass" );
+
+		///////////////////////////////////////////////////////////
+		var newArr = [];
+		$( "li" ).each( function() {
+			newArr.push( this.id );
+		});
+		console.log(newArr);
+
+		var ids = $( "li" ).map( function(index, element) {
+			return this.id;
+		}).get();
+		console.log(ids);
+
+		///////////////////////////////////////////////////////////
+	});
+
+	</script>
+</head>
+<body>
+	<h1 id = 'foo'>good morning</h1>
+	<ul>
+		<li id = "l1"><a href="#">Link 1</a></li>
+		<li id = "l2"><a href="#">Link 2</a></li>
+		<li id = "l3"><a href="#">Link 3</a></li>
+	</ul>
+</body>
+</html>

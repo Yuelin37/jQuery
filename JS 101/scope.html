@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+		function prtLine(){
+			console.log("------------------------------------------");
+		}
+		
+		(function() {
+		var myVar = "hello-world";
+		console.log(myVar);
+		})();
+		// console.log(myVar); // myVar is not defined
+
+		prtLine();
+		function outer() {
+			var x = 5;
+			function inner() {
+				console.log( x );
+			}
+		inner(); // 5
+		}
+		outer();
+
+		prtLine();
+		var foo = "world";
+		var sayHello = function() {
+			var foo = "hello";
+			console.log( foo );
+		};
+		sayHello(); // "hello"
+		console.log( foo ); // "world"
+
+		prtLine();
+		var myFunction = function() {
+			var foo = "hello";
+			var myFn = function() {
+				console.log( foo );
+			};
+			foo = "world...";
+			return myFn;
+		};
+		// console.log(myFunction);
+		var f = myFunction();
+		f(); // "world"
+
+		prtLine();
+		prtLine();
+		(function() {
+			var baz = 1;
+			var bim = function() {
+				console.log( baz );
+			};
+			bar = function() {
+				console.log( baz );
+			};
+			bim();
+		})();
+
+		bar();
+
+
+	</script>
+</head>
+<body>
+	<h1 id="hello-world">Hello World</h1>
+</body>
+</html>

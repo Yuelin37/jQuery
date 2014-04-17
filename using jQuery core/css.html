@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+
+	$(document).ready(function() {
+
+		// Setting CSS properties.
+		$( "h1" ).css( "fontSize", "100px" ); // Setting an individual property.
+		// Setting multiple properties.
+		$( "h1" ).css({
+			fontSize: "50px",
+			color: "green"
+		});
+		console.log($( "h1" ).css( "fontSize"));
+
+		// Returns an object containing position information for
+		// the first <h1> relative to its "offset (positioned) parent".
+		console.log($( "h1" ).position());
+	});
+	</script>
+</head>
+<body>
+	<h1>good morning</h1>
+</body>
+</html>

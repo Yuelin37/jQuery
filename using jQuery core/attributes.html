@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+
+
+	$(document).ready(function() {
+
+		$( "a" ).attr( "href", "allMyHrefsAreTheSameNow.html" );
+		$( "a" ).attr({
+			title: "all titles are the same too!",
+			href: "somethingNew.html"
+		});
+		console.log($( "a" ).attr( "href" )); // Returns the href for the first a element in the document
+	});
+	</script>
+</head>
+<body>
+	<a href="http://jquery.com/">jQuery</a>
+</body>
+</html>

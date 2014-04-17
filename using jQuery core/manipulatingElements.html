@@ -1,0 +1,60 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+
+	$(document).ready(function() {
+
+		/// Moving elements using different approaches.
+		// Make the first list item the last list item:
+		var li = $( "#myList li:first" ).appendTo( "#myList" );
+		// Another approach to the same problem:
+		$( "#myList" ).append( $( "#myList li:first" ) );
+		// Note that there's no way to access the list item
+		// that we moved, as this returns the list itself.
+
+		// Making a copy of an element.
+		// Copy the first list item to the end of the list:
+		$( "#myList li:first" ).clone().appendTo( "#myList" );
+
+		// Creating new elements from an HTML string.
+		$( "<p>This is a new paragraph</p>" );
+		$( "<li class=\"new\">new list item</li>" );
+
+
+		// Getting a new element on to the page.
+		var myNewElement = $( "<p>New element</p>" );
+		myNewElement.appendTo( "#content" );
+		myNewElement.insertAfter( "ul:last" ); // This will remove the p from #content!
+		$( "ul" ).last().after( myNewElement.clone() ); // Clone the p so now we have two.
+
+		// Creating and adding an element to the page at the same time.
+		$( "ul" ).append( "<li>list item</li>" );
+
+		var myItems = [];
+		var myList = $( "#myList" );
+		for ( var i = 0; i < 100; i++ ) {
+		myItems.push( "<li>item " + i + "</li>" );
+		}
+		myList.append( myItems.join( "" ) );
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<ol id='myList'>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ol>
+
+		<ul>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ul> 
+		<p id = 'content'>My first paragraph.</p>
+	</div>
+</body>
+</html>

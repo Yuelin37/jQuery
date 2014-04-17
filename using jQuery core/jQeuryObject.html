@@ -1,0 +1,62 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+
+	$(document).ready(function() {
+
+		// Viewing the number of <h1> tags on the page.
+		var allHeadings = $( "h1" );
+		console.log( allHeadings.length );
+
+		console.log(allHeadings.eq(0)); // allHeadings.eq(0) returns a jQuery-wrapped DOM element 
+
+		// Selecting only the first <h1> element on the page.
+		var firstHeadingElem = $( "h1" ).get( 0 ); // get returns the DOM element itself
+		console.log(firstHeadingElem);
+
+		// Selecting only the first <h1> element on the page (alternate approach).
+		var firstHeadingElem = $( "h1" )[ 0 ];			
+		console.log(firstHeadingElem);
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////
+		// An important detail regarding this "wrapping" behavior is that each wrapped object is unique
+		// Creating two jQuery objects for the same element.
+		var logo1 = $( "#logo" );
+		var logo2 = $( "#logo" );
+		// Comparing jQuery objects.
+		console.log( $( "#logo" ) === $( "#logo" ) ); // alerts "false"
+		console.log(logo1);
+		/////////////////////////////////////////////////////////////////////////////////////////
+		// Comparing DOM elements.
+		var logo1 = $( "#logo" );
+		var logo1Elem = logo1.get( 0 );
+		var logo2 = $( "#logo" );
+		var logo2Elem = logo2.get( 0 );
+		console.log( logo1Elem === logo2Elem ); // alerts "true"
+		/////////////////////////////////////////////////////////////////////////////////////////
+	});
+	</script>
+</head>
+<body>
+	<h1>good morning</h1>
+	<h1>good morning</h1>
+	<h1>good morning</h1>
+	<div>
+		<ol id='myList'>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ol>
+
+		<ul>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ul> 
+		<p id = 'content'>My first paragraph.</p>
+	</div>
+</body>
+</html>
