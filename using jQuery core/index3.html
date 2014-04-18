@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+	function prtMsg (msg) {
+		console.log(msg);
+	}
+	function prtLine () {
+		console.log("=========================================");
+	}
+	$(document).ready(function() {
+		// .index() with a jQuery Object Argument
+		var foo = $( "li" );
+		var baz = $( "#baz1" );
+		console.log( "Index: " + foo.index( baz ) ); // 2
+		var tests = $( ".test" );
+		var bar = $( "#bar1" );
+		// Implicitly calls .first() on the argument.
+		console.log( "Index: " + tests.index( bar ) ); // 1
+		console.log( "Index: " + tests.index( bar.first() ) ); // 1
+
+	});
+
+	</script>
+</head>
+<body>
+	<ul>
+		<div class="test"></div>
+		<li id="foo1">foo</li>
+		<li id="bar1" class="test">bar</li>
+		<li id="baz1">baz</li>
+		<div class="test"></div>
+	</ul>
+	<div id="last"></div>
+</body>
+</html>

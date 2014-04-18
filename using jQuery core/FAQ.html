@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+	function prtMsg (msg) {
+		console.log(msg);
+	}
+	function prtLine () {
+		console.log("=========================================");
+	}
+	$(document).ready(function() {
+		var myValue = $( "#myDivId" ).val(); // Get the value of a form input.
+		$( "#myDivId" ).val( "hello world" ); // Set the value of a form input.
+		prtMsg($( "#myDivId" ));
+
+	});
+
+	</script>
+</head>
+<body>
+	<ul>
+		<div class="test"></div>
+		<li id="foo1">foo</li>
+		<li id="bar1" class="test">bar</li>
+		<li id="baz1">baz</li>
+		<div class="test"></div>
+	</ul>
+	<div id="myDivId" value="good morning">abc</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+	function prtMsg (msg) {
+		console.log(msg);
+	}
+	function prtLine () {
+		console.log("=========================================");
+	}
+	$(document).ready(function() {
+		$( ".lightbulb" ).on( "changeState", function( e ) {
+			var light = $( this );
+			if ( light.hasClass( "on" ) ) {
+				light.trigger( "turnOff" );
+			} else {
+				light.trigger( "turnOn" );
+			}
+		}).on( "turnOn", function( e ) {
+			$( this ).removeClass( "off" ).addClass( "on" );
+		}).on( "turnOff", function( e ) {
+			$( this ).removeClass( "on" ).addClass( "off" );
+		});
+		$( ".switch, .clapper" ).click(function() {
+			$( this ).parent().find( ".lightbulb" ).trigger( "changeState" );
+		});
+		$( "#master_switch" ).click(function() {
+			if ( $( ".lightbulb.on" ).length ) {
+				$( ".lightbulb" ).trigger( "turnOff" );
+			} else {
+				$( ".lightbulb" ).trigger( "turnOn" );
+			}
+		});
+	});
+
+	</script>
+</head>
+<body>
+	<div class="room" id="kitchen">
+		<div class="lightbulb on"></div>
+		<div class="switch">k1</div>
+		<div class="switch">k2</div>
+		<div class="clapper">kc</div>
+	</div>
+	<div class="room" id="bedroom">
+		<div class="lightbulb on"></div>
+		<div class="switch">b1</div>
+		<div class="switch">b2</div>
+		<div class="clapper">bc</div>
+	</div>
+	<div id="master_switch">master</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script>
+
+	function prtMsg (msg) {
+		console.log(msg);
+	}
+	function prtLine () {
+		console.log("=========================================");
+	}
+	$(document).ready(function() {
+		// .index() with a String Argument
+		var foo = $( "li" );
+		// This implicitly calls .first()
+		console.log( "Index: " + foo.index( "li" ) ); // 0
+		console.log( "Index: " + foo.first().index( "li" ) ); // 0
+		var baz = $( "#baz1" );
+		console.log( "Index: " + baz.index( "li" )); // 2
+		var listItem = $( "#bar1" );
+		console.log( "Index: " + listItem.index( ".test" ) ); // 1
+		var div = $( "#last" );
+		console.log( "Index: " + div.index( "div" ) ); // 2
+
+	});
+
+	</script>
+</head>
+<body>
+	<ul>
+		<div class="test"></div>
+		<li id="foo1">foo</li>
+		<li id="bar1" class="test">bar</li>
+		<li id="baz1">baz</li>
+		<div class="test"></div>
+	</ul>
+	<div id="last"></div>
+</body>
+</html>
